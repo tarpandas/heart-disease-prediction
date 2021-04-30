@@ -2,7 +2,7 @@
 import pandas as pd
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
-from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier()
 from PIL import Image
 import streamlit as st
 
@@ -72,7 +72,7 @@ st.subheader('User Input:')
 st.write(user_input)
 
 #10. Create and train the model
-classifier = SVC()
+classifier = DecisionTreeClassifier()
 classifier.fit(X_train, Y_train)
 prediction = classifier.predict(X_test)
 #11. Show the models metrics
