@@ -2,7 +2,7 @@
 import pandas as pd
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 from PIL import Image
 import streamlit as st
 
@@ -30,7 +30,7 @@ X=df.iloc[:, 0:11].values
 Y=df.iloc[:, -1].values
 
 #6. Split data into 75% training and 25% testing set
-X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.02, random_state=0)
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.005, random_state=0)
 
 #7. Feature input from user
 def get_user_input():
@@ -72,7 +72,7 @@ st.subheader('User Input:')
 st.write(user_input)
 
 #10. Create and train the model
-classifier = DecisionTreeClassifier()
+classifier = RandomForestClassifier()
 classifier.fit(X_train, Y_train)
 prediction = classifier.predict(X_test)
 #11. Show the models metrics
