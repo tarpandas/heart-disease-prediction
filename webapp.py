@@ -30,7 +30,7 @@ X=df.iloc[:, 0:11].values
 Y=df.iloc[:, -1].values
 
 #6. Split data into 75% training and 25% testing set
-X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.1, random_state=0)
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.02, random_state=0)
 
 #7. Feature input from user
 def get_user_input():
