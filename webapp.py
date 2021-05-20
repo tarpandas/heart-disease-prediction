@@ -18,6 +18,8 @@ df=pd.read_csv('heart-20000.csv')
 
 del df['id']
 df.drop(df[df['ap_hi']>250].index, inplace = True)
+df.drop(df[df['ap_hi']<60].index, inplace = True)
+df.drop(df[df['ap_lo']>180].index, inplace = True)
 df.drop(df[df['ap_lo']<50].index, inplace = True)
 
 #4. Set a subheader
