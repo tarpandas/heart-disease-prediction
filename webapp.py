@@ -16,6 +16,10 @@ st.image(image, caption='Heart Disease Detection using ML', use_column_width=Tru
 #3. Get Data
 df=pd.read_csv('heart-20000.csv')
 
+del df['id']
+df.drop(df[df['ap_hi']>250].index, inplace = True)
+df.drop(df[df['ap_lo']<50].index, inplace = True)
+
 #4. Set a subheader
 st.subheader('Data Information:')
 #Show data as a table
